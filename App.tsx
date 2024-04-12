@@ -12,9 +12,12 @@ function App(): JSX.Element {
         <View style={{paddingHorizontal: 24}}>
           <Text preset={'headingLarge'}>CoffeeStack</Text>
 
-          <Button title="Entrar" marginBottom="s10" />
+          <Button loading title="Primary" marginBottom="s10" />
+          <Button disabled title="Primary" marginBottom="s10" />
 
-          <Button loading title="Loading" />
+          <Button title="Outline" preset="outline" marginBottom="s10" />
+
+          <Button disabled preset="outline" title="Loading" />
         </View>
       </SafeAreaView>
     </ThemeProvider>
