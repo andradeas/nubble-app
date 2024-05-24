@@ -2,17 +2,22 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {SignUpScreen} from '../screens/auth/SignUpScreen/SignUpScreen';
 import {LoginScreen} from '../screens/auth/LoginScreen/LoginScreen';
+import {SuccessScreen} from '../screens/auth/SuccessScreen/SuccessScreen';
+import {IconProps} from '../components/Icon/Icon';
+import {ForgotPasswordScreen} from '../screens/auth/ForgotPasswordScreen/ForgotPasswordScreen';
 
 export type RootStackParamList = {
   LoginScreen: undefined;
   SignUpScreen: undefined;
-
-  // TODO: Success Screen: icon, title, description
+  SuccessScreen: {
+    title: string;
+    description: string;
+    icon: Pick<IconProps, 'name' | 'color'>;
+  };
+  ForgotPasswordScreen: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
-
-//Router.tsx
 
 export function Router() {
   return (
@@ -25,6 +30,11 @@ export function Router() {
         initialRouteName="LoginScreen">
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
+        <Stack.Screen name="SuccessScreen" component={SuccessScreen} />
+        <Stack.Screen
+          name="ForgotPasswordScreen"
+          component={ForgotPasswordScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
