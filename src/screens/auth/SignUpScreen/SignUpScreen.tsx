@@ -2,7 +2,6 @@ import React from 'react';
 
 import {zodResolver} from '@hookform/resolvers/zod';
 import {useForm} from 'react-hook-form';
-import {NativeStackScreenProps} from 'react-native-screens/lib/typescript/native-stack/types';
 
 import {
   Button,
@@ -12,14 +11,12 @@ import {
   Text,
 } from '@components';
 import {useResetNavigationSuccess} from '@hooks';
-import {RootStackParamList} from '@routes';
+import {AuthScreenProps} from '@routes';
 
 import {signUpSchema, SignUpSchema} from './signUpSchema';
 
-type ScreenProps = NativeStackScreenProps<RootStackParamList, 'SignUpScreen'>;
-
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function SignUpScreen({navigation}: ScreenProps) {
+export function SignUpScreen({navigation}: AuthScreenProps<'SignUpScreen'>) {
   const {control, formState, handleSubmit} = useForm<SignUpSchema>({
     resolver: zodResolver(signUpSchema),
     defaultValues: {
