@@ -8,10 +8,10 @@ import {useAppTheme} from '@hooks';
 import {ThemeColors} from '@theme';
 
 interface Props extends Omit<ActivityIndicatorProps, 'color'> {
-  color: ThemeColors;
+  color?: ThemeColors;
 }
 
-export function ActivityIndicator({color}: Props) {
+export function ActivityIndicator({color = 'primary'}: Props) {
   const {colors} = useAppTheme();
 
   /*O UseTheme é usado para pegar o valor passado dentro de color que é
