@@ -15,7 +15,7 @@ interface Props {
   toast: Toast;
 }
 
-export function ToasContent({toast}: Props) {
+export function ToastContent({toast}: Props) {
   const type: ToastType = toast?.type || 'success';
 
   return (

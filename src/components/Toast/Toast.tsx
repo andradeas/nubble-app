@@ -3,7 +3,7 @@ import {Animated} from 'react-native';
 
 import {ToastPosition, useToast, useToastService} from '@services';
 
-import {ToasContent} from './components/ToasContent';
+import {ToastContent} from './components/ToastContent';
 
 const DEFAULT_DURATION = 2000;
 
@@ -56,7 +56,7 @@ export function Toast() {
         opacity: fadeAnim,
         [position]: 100,
       }}>
-      <ToasContent toast={toast} />
+      <ToastContent toast={toast} />
     </Animated.View>
   );
 }
