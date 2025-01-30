@@ -3,8 +3,12 @@ module.exports = {
   setupFiles: ['<rootDir>/src/test/jestSetup.ts'],
   moduleDirectories: ['node_modules', './src/test'],
   modulePathIgnorePatterns: ['.*/mockedData/.*'],
+  testTimeout: 15000,
   collectCoverageFrom: [
-    'src/{components,utils,hooks,domain}/**/*.{js,jsx,ts,tsx}',
+    'src/{components,utils,hooks,domain,screens}/**/*.{js,jsx,ts,tsx}',
   ],
   coveragePathIgnorePatterns: ['/node_modules/', 'index'],
+  transformIgnorePatterns: [
+    'node_modules/(?!((jest-)?react-native|@react-native(-community)?|react-native-safe-area-context)/)',
+  ],
 };
