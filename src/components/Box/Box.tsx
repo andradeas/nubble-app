@@ -1,4 +1,8 @@
-import {TouchableOpacity, TouchableOpacityProps} from 'react-native';
+import {
+  TouchableOpacity,
+  TouchableOpacityProps,
+  PressableProps,
+} from 'react-native';
 
 import {
   createBox,
@@ -21,17 +25,25 @@ export const Box = createBox<Theme>();
 
 export type BoxProps = React.ComponentProps<typeof Box>;
 
-export type TouchableOpacityBoxProps = BackgroundColorProps<Theme> &
+type RestyleTypes = BackgroundColorProps<Theme> &
   SpacingProps<Theme> &
   LayoutProps<Theme> &
   BorderProps<Theme> &
-  SpacingShorthandProps<Theme> &
-  TouchableOpacityProps;
+  SpacingShorthandProps<Theme>;
+
+export type TouchableOpacityBoxProps = TouchableOpacityProps & RestyleTypes;
 
 export const TouchableOpacityBox = createRestyleComponent<
   TouchableOpacityBoxProps,
   Theme
 >(
+  [backgroundColor, spacing, spacingShorthand, layout, border],
+  TouchableOpacity,
+);
+
+export type PressableBoxProps = PressableProps & RestyleTypes;
+
+export const PressableBox = createRestyleComponent<PressableBoxProps, Theme>(
   [backgroundColor, spacing, spacingShorthand, layout, border],
   TouchableOpacity,
 );
